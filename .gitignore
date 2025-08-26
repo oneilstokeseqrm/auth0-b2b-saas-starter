@@ -28,6 +28,18 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# Environment files
+.env
+.env.local
+.env.vercel
+.env.production
+.env.*
+!.env.example
+
+# Task output files
+task*-output.json
+deployment-instructions.md
+
 # vercel
 .vercel
 
