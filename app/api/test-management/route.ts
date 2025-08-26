@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { managementClient } from '../../../lib/auth0'
+import { managementClient } from '@/lib/auth0'
 
 export async function GET(request: NextRequest) {
   console.log("=== Testing Management API in Vercel Environment ===")
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
   try {
     console.log("Testing organizations.getAll()...")
     const orgs = await managementClient.organizations.getAll({ per_page: 1 })
-    console.log("✓ Successfully accessed organizations API, found", orgs.length, "organizations")
+    console.log("✓ Successfully accessed organizations API, found", orgs.data.length, "organizations")
 
     console.log("Testing organization creation...")
     const testOrgName = `test-org-${Date.now()}`
@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ 
       success: true, 
       message: "Management API test successful",
-      organizationsFound: orgs.length
+      organizationsFound: orgs.data.length
     })
 
   } catch (error: any) {
