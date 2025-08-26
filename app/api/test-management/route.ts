@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { managementClient } from '@/lib/auth0'
+import { managementClient } from '../../../lib/auth0'
 
 export async function GET(request: NextRequest) {
   console.log("=== Testing Management API in Vercel Environment ===")
